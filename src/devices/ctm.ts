@@ -1307,6 +1307,23 @@ export const definitions: DefinitionWithExtend[] = [
         whiteLabel: [{vendor: "CTM Lyng", model: "CTM_DimmerPille", description: "CTM Lyng DimmerPille", fingerprint: [{modelID: "DimmerPille"}]}],
     },
     {
+        zigbeeModel: ["mTouch OnOff"],
+        model: "mTouch OnOff",
+        vendor: "CTM Lyng",
+        description: "Automatically generated definition",
+        extend: [
+            m.deviceEndpoints({
+                endpoints: { 1: 1, 2: 2 },
+                multiEndpointSkip: ["state", "on", "off", "power_on_behavior"],
+            }),
+            m.deviceTemperature(),
+            m.identify(),
+            m.onOff(),
+            m.occupancy(),
+            m.commandsOnOff({ endpointNames: ["2"] }),
+        ],
+    },
+    {
         zigbeeModel: ["mTouch Bryter"],
         model: "mTouch_Bryter",
         vendor: "CTM Lyng",
